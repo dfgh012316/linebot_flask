@@ -31,6 +31,10 @@ handler = WebhookHandler(channel_secret)
 def home():
     return "Hello man"
 
+@app.route('/reverse')
+def reverse():
+    return render_template('reverse.php')
+    
 @app.route('/ActivityList')
 def ActivityList():
     return render_template('ActivityList.php')
@@ -125,6 +129,11 @@ def handle_message(event):
          line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text="https://liff.line.me/1654894146-Q2k7n1Gg"))
+
+    elif input_text == '訂位' :
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text="https://liff.line.me/1654894146-oa29W7aL"))
 
 
     else :
